@@ -17,15 +17,3 @@ export const bind = function (func, context) {
   }
 
 };
-const func = function (a, b) {
-  return a + b;
-};
-
-const func2 = function () {
-  return this.foo;
-};
-//
-const boundFunc = bind(func, null, "foo")
-boundFunc('bar')//?
-const boundFunc2 = bind(func2, {foo: "bar"})//?
-boundFunc2()//?
