@@ -10,7 +10,6 @@ export default function List() {
     setItems(prev => [...prev, {index: index}]);
   };
   const onRemoveClick = (index) => {
-    console.log(index);
     const newItems = items.filter(item => item.index !== index)
     setItems(newItems);
   };

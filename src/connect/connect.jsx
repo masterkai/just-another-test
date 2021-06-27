@@ -18,14 +18,6 @@ export const createExampleStore = () =>
     }
   });
 
-// export const connect = (store) => (mapStateToProps, mapDispatchToProps) => (
-//   Component
-// ) => {
-//   // 請在這裡實作
-//
-//   return Component
-// };
-
 export const connect = (store) => (mapStateToProps, mapDispatchToProps) =>
   (Component) => {
     return class extends React.Component {
