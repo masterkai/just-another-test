@@ -9,3 +9,6 @@ export const flattenDeep = (array) => {
   return array.reduce((a, b) => a.concat(Array.isArray(b) ? flattenDeep(b) : b), [])
 };
 flattenDeep([1, [2, [3, [4]]], 5])//?
+
+  const arr2=[]//?
+arr2.concat(2)//?

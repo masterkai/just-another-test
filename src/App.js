@@ -6,6 +6,7 @@ import Connect from "./connect";
 import Bind from "./bind";
 import Flatten from "./flatten";
 import PromiseAll from "./promiseAll";
+import MemoTest from "./useMemo";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
         <Route exact path="/flatten" component={Flatten} />
         <Route exact path="/hook" component={Hook} />
         <Route exact path="/list" component={List} />
+        <Route exact path="/memo" component={MemoTest} />
         <Route path="/" component={Intro} />
       </Switch>
     </BrowserRouter>

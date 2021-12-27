@@ -33,6 +33,9 @@ export default () => (
         <li>
           <Link to="/list">List rendering</Link>
         </li>
+        <li>
+          <Link to="/memo">memo testing</Link>
+        </li>
       </ul>
     </div>
     <h2> Part II</h2>
