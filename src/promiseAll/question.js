@@ -95,3 +95,43 @@ class MyPromise {
 
 
 }
+
+MyPromise.resolve = function (value) {
+  return new MyPromise((resolve, reject) => resolve(value))
+}
+MyPromise.reject = function (reason) {
+  return new MyPromise((resolve, reject) => reject(reason))
+}
+MyPromise.all = function (promiseList = []) {
+  return new MyPromise((resolve, reject) => {
+    const result = [] //儲存promiseList的所有結果
+    const length = promiseList.length
+    let promiseCount = 0
+    return promiseList.forEach(p => {
+      p.then(data => {
+        result.push(data)
+
+        promiseCount++
+        if (promiseCount === length) {
+          resolve(result)
+        }
+      }).catch(err => {
+        reject(err)
+      })
+
+    })
+  })
+}
+MyPromise.race = function (promiseList = []) {
+  let resolved = false
+  return new MyPromise((resolve, reject) => {
+    return promiseList.forEach(p => {
+      p.then(data => {
+        if (!resolved) {
+          resolve(data)
+          resolved = true
+        }
+      }).catch(err => reject(err))
+    })
+  })
+}
