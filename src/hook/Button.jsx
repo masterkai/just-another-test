@@ -1,18 +1,13 @@
-import React, {useEffect, useRef, useState} from "react";
-import _ from "lodash"
+import React, {useState} from "react";
 
 export default function Button() {
   const [count, setCount] = useState(0);
-  const buttonRef = useRef()
 
 
   const onClick = () => {
-    setTimeout(() =>
-      setCount(count + 1)
-      // _.debounce(() => setCount(count + 1), 1000)
-    , 1000)
+    setTimeout(() => setCount(prevCount => prevCount + 1), 1000)
   };
 
 
-  return <button ref={buttonRef} onClick={onClick}>{count}</button>;
+  return <button onClick={onClick}>{count}</button>;
 }
