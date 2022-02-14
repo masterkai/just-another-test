@@ -3,11 +3,13 @@ import React, {useState} from "react";
 
 export default function List() {
   const [items, setItems] = useState([]);
-  const [index, setIndex] = useState(0);
+
+  const uid = function(){
+    return Date.now().toString(36) + Math.random().toString(36).substr(2);
+  }
 
   const onAddClick = () => {
-    setIndex(index + 1)
-    setItems(prev => [...prev, {index: index}]);
+    setItems(prev => [...prev, {index: uid()}]);
   };
   const onRemoveClick = (index) => {
     const newItems = items.filter(item => item.index !== index)
